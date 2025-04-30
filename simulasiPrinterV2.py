@@ -3,7 +3,7 @@ import random
 from collections import deque
 
 class Document:
-    def _init_(self, name, priority=False):
+    def __init__(self, name, priority=False):
         self.name = name
         self.size = random.randint(1, 10)  # ukuran MB
         self.type = self.determine_type()
@@ -19,12 +19,12 @@ class Document:
         else:
             return "Lainnya"
 
-    def _str_(self):
+    def __str__(self):
         prioritas = " (Prioritas)" if self.priority else ""
         return f"{self.name} ({self.type}, {self.size}MB){prioritas}"
 
 class PrinterQueue:
-    def _init_(self):
+    def __init__(self):
         self.queue = deque()
         self.history = []
 
@@ -75,7 +75,7 @@ class PrinterQueue:
             print("=========================\n")
 
 class PrinterApp:
-    def _init_(self):
+    def __init__(self):
         self.printer_queue = PrinterQueue()
 
     def menu(self):
